@@ -6,15 +6,15 @@ import { MdInsights } from "react-icons/md";
 
 const WelcomePage = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white to-green-50 px-6 py-12">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white to-blue-50 px-6 py-12">
       {/* Icon */}
-      <div className="bg-green-100 rounded-full p-4 mb-6">
-        <FaHeartbeat className="text-green-700 text-3xl" />
+      <div className="bg-blue-100 rounded-full p-4 mb-6">
+        <FaHeartbeat className="text-blue-700 text-3xl" />
       </div>
 
       {/* Heading */}
       <h1 className="text-3xl font-bold text-gray-800 mb-3">
-        Welcome to <span className="text-green-700">SeedCheck</span>
+        Welcome to <span className="text-blue-700">SeedCheck</span>
       </h1>
       <p className="text-gray-600 max-w-lg text-center mb-6">
         Take control of your fertility health with personalized tracking,
@@ -23,13 +23,13 @@ const WelcomePage = () => {
 
       {/* Buttons */}
       <div className="flex gap-3 mb-10">
-        <button className="bg-gray-800 text-white px-4 py-2 rounded-md text-sm shadow hover:bg-gray-700">
+        <button className="bg-blue-700 text-white px-4 py-2 rounded-md text-sm shadow hover:bg-blue-600 transition">
           Privacy First
         </button>
-        <button className="bg-gray-800 text-white px-4 py-2 rounded-md text-sm shadow hover:bg-gray-700 flex items-center gap-1">
+        <button className="bg-blue-700 text-white px-4 py-2 rounded-md text-sm shadow hover:bg-blue-600 flex items-center gap-1 transition">
           <FiActivity /> Daily Tracking
         </button>
-        <button className="bg-gray-800 text-white px-4 py-2 rounded-md text-sm shadow hover:bg-gray-700 flex items-center gap-1">
+        <button className="bg-blue-700 text-white px-4 py-2 rounded-md text-sm shadow hover:bg-blue-600 flex items-center gap-1 transition">
           <MdInsights /> Health Insights
         </button>
       </div>
@@ -37,9 +37,10 @@ const WelcomePage = () => {
       {/* Feature Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full">
         {/* Lifestyle Tracking */}
-        <div className="border rounded-lg p-6 shadow-sm hover:shadow-md bg-white">
+        <div className="border rounded-lg p-6 shadow-sm bg-white cursor-pointer 
+                        transition transform hover:shadow-xl hover:-translate-y-2 hover:border-blue-300">
           <div className="flex items-center gap-2 mb-3">
-            <FiActivity className="text-green-700 text-xl" />
+            <FiActivity className="text-blue-700 text-xl" />
             <h3 className="font-semibold text-gray-800">Lifestyle Tracking</h3>
           </div>
           <p className="text-gray-600 text-sm">
@@ -49,9 +50,10 @@ const WelcomePage = () => {
         </div>
 
         {/* Symptom Monitoring */}
-        <div className="border rounded-lg p-6 shadow-sm hover:shadow-md bg-white">
+        <div className="border rounded-lg p-6 shadow-sm bg-white cursor-pointer 
+                        transition transform hover:shadow-xl hover:-translate-y-2 hover:border-blue-300">
           <div className="flex items-center gap-2 mb-3">
-            <AiOutlineHeart className="text-green-700 text-xl" />
+            <AiOutlineHeart className="text-blue-700 text-xl" />
             <h3 className="font-semibold text-gray-800">Symptom Monitoring</h3>
           </div>
           <p className="text-gray-600 text-sm">
@@ -61,9 +63,10 @@ const WelcomePage = () => {
         </div>
 
         {/* Health Insights */}
-        <div className="border rounded-lg p-6 shadow-sm hover:shadow-md bg-white">
+        <div className="border rounded-lg p-6 shadow-sm bg-white cursor-pointer 
+                        transition transform hover:shadow-xl hover:-translate-y-2 hover:border-blue-300">
           <div className="flex items-center gap-2 mb-3">
-            <MdInsights className="text-green-700 text-xl" />
+            <MdInsights className="text-blue-700 text-xl" />
             <h3 className="font-semibold text-gray-800">Health Insights</h3>
           </div>
           <p className="text-gray-600 text-sm">
