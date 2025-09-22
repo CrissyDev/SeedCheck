@@ -1,0 +1,169 @@
+.welcome-container {
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.95)),
+              url("/images/seedcheck.jpeg") center/cover no-repeat;
+}
+
+/* Icon */
+.icon-wrapper {
+  background: #e6f0ff;
+  border-radius: 50%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.main-icon {
+  color: #0d47a1; /* Deep blue */
+  font-size: 2.5rem;
+}
+
+/* Headings */
+.main-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0d47a1;
+  margin-bottom: 0.5rem;
+}
+.highlight {
+  color: #1565c0; /* Bright blue */
+}
+.sub-heading {
+  color: #333;
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  justify-content: center;
+}
+.primary-btn {
+  background: #0d47a1;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+.primary-btn:hover {
+  background: #08306b;
+  transform: translateY(-2px);
+}
+
+/* Cards */
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 1000px;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.feature-card {
+  background: #ffffff;
+  border: 1px solid #dce7f9;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(13, 71, 161, 0.15);
+  border-color: #0d47a1;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.card-icon {
+  color: #0d47a1;
+  font-size: 1.3rem;
+}
+.feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0d47a1;
+}
+.feature-card p {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Responsive Layout for Cards */
+@media (min-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cards-container .feature-card:nth-child(4),
+  .cards-container .feature-card:nth-child(5) {
+    grid-column: span 1;
+  }
+}
+@media (min-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /* Center last two cards */
+  .cards-container .feature-card:nth-child(4) {
+    grid-column: 2 / 3;
+  }
+  .cards-container .feature-card:nth-child(5) {
+    grid-column: 3 / 4;
+  }
+}
+
+/* Call-to-Action Section */
+.cta-section {
+  background: #f1f9ff;
+  border: 1px solid #d0e6f7;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  margin-top: 2rem;
+}
+.cta-section h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  color: #0d47a1;
+}
+.cta-section p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+.get-started-btn {
+  background: #1565c0;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.get-started-btn:hover {
+  background: #0d47a1;
+  transform: translateY(-2px);
+}

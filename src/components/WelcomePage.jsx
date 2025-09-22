@@ -1,79 +1,115 @@
 import React from "react";
-import { FaHeartbeat } from "react-icons/fa"; 
-import { FiActivity } from "react-icons/fi"; 
-import { AiOutlineHeart } from "react-icons/ai"; 
-import { MdInsights } from "react-icons/md"; 
+import { FaHeartbeat } from "react-icons/fa";
+import { FiActivity } from "react-icons/fi";
+import { AiOutlineHeart } from "react-icons/ai";
+import { MdInsights } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
+import { GiLightBulb } from "react-icons/gi";
+import "./WelcomePage.css"; 
+import { useNavigate } from "react-router-dom";
 
 const WelcomePage = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white to-blue-50 px-6 py-12">
+    <div className="welcome-container">
       {/* Icon */}
-      <div className="bg-blue-100 rounded-full p-4 mb-6">
-        <FaHeartbeat className="text-blue-700 text-3xl" />
+      <div className="icon-wrapper">
+        <FaHeartbeat className="main-icon" />
       </div>
 
       {/* Heading */}
-      <h1 className="text-3xl font-bold text-gray-800 mb-3">
-        Welcome to <span className="text-blue-700">SeedCheck</span>
+      <h1 className="main-heading">
+        Welcome to <span className="highlight">SeedCheck</span>
       </h1>
-      <p className="text-gray-600 max-w-lg text-center mb-6">
+      <p className="sub-heading">
         Take control of your fertility health with personalized tracking,
         insights, and recommendations designed specifically for men.
       </p>
 
       {/* Buttons */}
-      <div className="flex gap-3 mb-10">
-        <button className="bg-blue-700 text-white px-4 py-2 rounded-md text-sm shadow hover:bg-blue-600 transition">
-          Privacy First
-        </button>
-        <button className="bg-blue-700 text-white px-4 py-2 rounded-md text-sm shadow hover:bg-blue-600 flex items-center gap-1 transition">
+      <div className="button-group">
+        <button className="primary-btn">Privacy First</button>
+        <button className="primary-btn">
           <FiActivity /> Daily Tracking
         </button>
-        <button className="bg-blue-700 text-white px-4 py-2 rounded-md text-sm shadow hover:bg-blue-600 flex items-center gap-1 transition">
+        <button className="primary-btn">
           <MdInsights /> Health Insights
         </button>
       </div>
 
       {/* Feature Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full">
-        {/* Lifestyle Tracking */}
-        <div className="border rounded-lg p-6 shadow-sm bg-white cursor-pointer 
-                        transition transform hover:shadow-xl hover:-translate-y-2 hover:border-blue-300">
-          <div className="flex items-center gap-2 mb-3">
-            <FiActivity className="text-blue-700 text-xl" />
-            <h3 className="font-semibold text-gray-800">Lifestyle Tracking</h3>
+      <div className="cards-container">
+        <div className="feature-card">
+          <div className="card-header">
+            <FiActivity className="card-icon" />
+            <h3>Lifestyle Tracking</h3>
           </div>
-          <p className="text-gray-600 text-sm">
+          <p>
             Monitor alcohol intake, smoking, diet quality, exercise, and sleep
             patterns with simple daily logging.
           </p>
         </div>
 
-        {/* Symptom Monitoring */}
-        <div className="border rounded-lg p-6 shadow-sm bg-white cursor-pointer 
-                        transition transform hover:shadow-xl hover:-translate-y-2 hover:border-blue-300">
-          <div className="flex items-center gap-2 mb-3">
-            <AiOutlineHeart className="text-blue-700 text-xl" />
-            <h3 className="font-semibold text-gray-800">Symptom Monitoring</h3>
+        <div className="feature-card">
+          <div className="card-header">
+            <AiOutlineHeart className="card-icon" />
+            <h3>Symptom Monitoring</h3>
           </div>
-          <p className="text-gray-600 text-sm">
+          <p>
             Track urogenital symptoms and sexual health metrics to identify
             patterns and potential concerns.
           </p>
         </div>
 
-        {/* Health Insights */}
-        <div className="border rounded-lg p-6 shadow-sm bg-white cursor-pointer 
-                        transition transform hover:shadow-xl hover:-translate-y-2 hover:border-blue-300">
-          <div className="flex items-center gap-2 mb-3">
-            <MdInsights className="text-blue-700 text-xl" />
-            <h3 className="font-semibold text-gray-800">Health Insights</h3>
+        <div className="feature-card">
+          <div className="card-header">
+            <MdInsights className="card-icon" />
+            <h3>Health Insights</h3>
           </div>
-          <p className="text-gray-600 text-sm">
+          <p>
             Visualize trends and correlations between your lifestyle choices and
             fertility health over time.
           </p>
         </div>
+
+        {/* ✅ Additional Card 1 */}
+        <div className="feature-card">
+          <div className="card-header">
+            <GiLightBulb className="card-icon" />
+            <h3>Smart Recommendations</h3>
+          </div>
+          <p>
+            Receive AI-driven tips tailored to your health data to help improve 
+            fertility and overall well-being.
+          </p>
+        </div>
+
+        {/* ✅ Additional Card 2 */}
+        <div className="feature-card">
+          <div className="card-header">
+            <FaUsers className="card-icon" />
+            <h3>Community Support</h3>
+          </div>
+          <p>
+            Connect with others, share experiences, and learn from a supportive 
+            fertility health community.
+          </p>
+        </div>
+      </div>
+
+      {/* Call-to-Action Section */}
+      <div className="cta-section">
+        <h2>Ready to start your fertility journey?</h2>
+        <p>
+          Set up your profile in just a few minutes and begin tracking your health today.
+        </p>
+        <button 
+          className="get-started-btn"
+          onClick={() => navigate("/signup")}
+        >
+          Get Started
+        </button>
       </div>
     </div>
   );
