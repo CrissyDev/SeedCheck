@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaUser, FaBriefcase, FaHeartbeat, FaClock } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import Confetti from "react-confetti";
 import "./ProfileSetup.css";
 
 const ProfileSetup = () => {
   const [step, setStep] = useState(1);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const navigate = useNavigate();
 
   // Step 1 fields - Basic Info
   const [age, setAge] = useState("");
@@ -43,12 +47,30 @@ const ProfileSetup = () => {
   const nextStep = () => {
     if (step < 4) setStep(step + 1);
   };
+
   const prevStep = () => {
-    if (step > 1) setStep(step - 1);
+    if (step === 1) {
+      navigate("/"); // go back to WelcomePage
+    } else {
+      setStep(step - 1);
+    }
+  };
+
+  // Handle finish setup
+  const handleFinish = () => {
+    setShowConfetti(true);
+
+    setTimeout(() => {
+      setShowConfetti(false);
+      navigate("/dashboard"); // redirect after 3s
+    }, 3000);
   };
 
   return (
     <div className="profile-setup-container">
+      {/* 🎉 Confetti when finished */}
+      {showConfetti && <Confetti width={window.innerWidth} height={window.innerHeight} />}
+
       <h2 className="step-title">Profile Setup</h2>
       <p className="step-progress">Step {step} of 4</p>
 
@@ -243,11 +265,9 @@ const ProfileSetup = () => {
 
         {/* Navigation Buttons */}
         <div className="form-actions">
-          {step > 1 && (
-            <button className="secondary-btn" onClick={prevStep}>
-              ← Previous
-            </button>
-          )}
+          <button className="secondary-btn" onClick={prevStep}>
+            ← Previous
+          </button>
 
           {step < 4 ? (
             <button
@@ -258,7 +278,9 @@ const ProfileSetup = () => {
               Next →
             </button>
           ) : (
-            <button className="primary-btn">Finish</button>
+            <button className="primary-btn" onClick={handleFinish}>
+              Finish
+            </button>
           )}
         </div>
       </div>
