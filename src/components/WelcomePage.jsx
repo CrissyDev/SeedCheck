@@ -106,7 +106,7 @@ const WelcomePage = () => {
         </p>
         <button 
           className="get-started-btn"
-          onClick={() => navigate("/signup")}
+          onClick={() => navigate("/profile-setup")}
         >
           Get Started
         </button>
