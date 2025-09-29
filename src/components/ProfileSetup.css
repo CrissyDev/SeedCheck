@@ -17,6 +17,7 @@
   color: #666;
 }
 
+/* Progress bar */
 .progress-bar {
   height: 6px;
   background: #e0e0e0;
@@ -27,10 +28,11 @@
 
 .progress-filled {
   height: 100%;
-  width: 25%;
   background: #0a66c2; /* Blue */
+  transition: width 0.4s ease-in-out;
 }
 
+/* Step navigation */
 .steps-nav {
   display: flex;
   justify-content: space-between;
@@ -43,13 +45,17 @@
   align-items: center;
   gap: 6px;
   color: #666;
+  padding: 4px 8px;
+  border-radius: 6px;
 }
 
 .steps-nav .active-step {
   font-weight: bold;
   color: #0a66c2;
+  background: #eaf3ff;
 }
 
+/* Form card */
 .form-card {
   background: #f9fcff;
   border: 1px solid #dce6f1;
@@ -65,6 +71,13 @@
   gap: 8px;
 }
 
+.form-card p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+/* Form rows */
 .form-row {
   display: flex;
   gap: 20px;
@@ -84,18 +97,38 @@
   color: #0a2a66;
 }
 
-.form-group input {
+/* Inputs + textareas */
+.form-group input,
+.form-group textarea {
   padding: 10px;
   border: 1px solid #ccd9f1;
   border-radius: 8px;
   outline: none;
+  font-size: 14px;
+  resize: vertical;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group textarea:focus {
   border-color: #0a66c2;
   box-shadow: 0 0 5px rgba(10,102,194,0.3);
 }
 
+/* Checkbox */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+  accent-color: #0a66c2; /* Modern browsers */
+  width: 16px;
+  height: 16px;
+}
+
+/* Form actions */
 .form-actions {
   display: flex;
   justify-content: space-between;
@@ -109,6 +142,11 @@
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.primary-btn:hover {
+  background: #084c99;
 }
 
 .primary-btn.disabled {
@@ -123,4 +161,9 @@
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+  background: #eaf3ff;
 }

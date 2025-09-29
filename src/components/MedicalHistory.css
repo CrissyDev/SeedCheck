@@ -1,0 +1,179 @@
+/* Container */
+.profile-setup-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Titles */
+.step-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0056b3; /* deep blue */
+  margin-bottom: 8px;
+}
+
+.step-progress {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0066cc;
+  margin-bottom: 20px;
+}
+
+/* Progress Bar */
+.progress-bar {
+  background: #e6f0fa;
+  border-radius: 12px;
+  height: 10px;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+.progress-filled {
+  background: linear-gradient(90deg, #0056b3, #3399ff);
+  height: 100%;
+  border-radius: 12px;
+}
+
+/* Step navigation */
+.steps-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  font-size: 14px;
+  color: #777;
+}
+.steps-nav span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.steps-nav .active-step {
+  font-weight: bold;
+  color: #0056b3;
+}
+
+/* Card */
+.form-card {
+  background: #f9fbff;
+  border: 1px solid #d6e4f7;
+  border-radius: 14px;
+  padding: 25px;
+}
+
+.form-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #004080;
+  margin-bottom: 8px;
+}
+.form-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Form fields */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #004080;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c2d9f0;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #ffffff;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #3399ff;
+  box-shadow: 0 0 6px rgba(0, 102, 204, 0.3);
+}
+
+/* Textarea */
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Checkbox group */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.checkbox-label {
+  font-size: 14px;
+  background: #e6f0fa;
+  border: 1px solid #c2d9f0;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.checkbox-label input {
+  margin-right: 6px;
+}
+.checkbox-label:hover {
+  background: #d6e4f7;
+  border-color: #3399ff;
+}
+
+/* Buttons */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 12px 28px;
+  font-size: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: none;
+}
+
+/* Primary (Next) */
+.primary-btn {
+  background: #0056b3;
+  color: #fff;
+}
+.primary-btn:hover {
+  background: #004494;
+}
+.primary-btn.disabled {
+  background: #aac7e8;
+  cursor: not-allowed;
+}
+
+/* Secondary (Previous) */
+.secondary-btn {
+  background: #e6f0fa;
+  color: #004080;
+}
+.secondary-btn:hover {
+  background: #d6e4f7;
+}
