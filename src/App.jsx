@@ -1,10 +1,11 @@
+// src/App.jsx
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import WelcomePage from "./components/WelcomePage.jsx";
 import ProfileSetup from "./components/ProfileSetup.jsx";
 import Dashboard from "./components/Dashboard";
-
+import Lifestyle from "./components/Lifestyle";  
 function App() {
   return (
     <Routes>
@@ -14,8 +15,11 @@ function App() {
       {/* Profile setup wizard */}
       <Route path="/profile-setup" element={<ProfileSetup />} />
 
-      {/*Dashboard Routing*/}
+      {/* Dashboard */}
       <Route path="/dashboard" element={<Dashboard />} />
+
+      {/* Lifestyle */}
+      <Route path="/lifestyle" element={<Lifestyle />} />
 
       {/* 404 fallback */}
       <Route path="*" element={<h2>404 - Page Not Found</h2>} />

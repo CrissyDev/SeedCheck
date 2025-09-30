@@ -1,0 +1,112 @@
+.lifestyle-page {
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+  color: #003366;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.header-row h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.header-row p {
+  color: #555;
+}
+
+.actions-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-picker {
+  padding: 6px 12px;
+  border: 1px solid #cce7ff;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.save-btn {
+  background: #3399ff; /* lighter blue */
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.save-btn:hover {
+  background: #4da6ff; /* softer hover */
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.lifestyle-card {
+  background: #f0fcff;
+  border: 1px solid #cce7ff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+
+.lifestyle-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.lifestyle-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.lifestyle-card.hoverable:hover {
+  background: #3399ff; /* lighter hover blue */
+  color: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(51, 153, 255, 0.4);
+}
+
+.lifestyle-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Icon colors */
+.lifestyle-icon.purple {
+  color: #9b59b6;
+}
+
+.lifestyle-icon.red {
+  color: #e74c3c;
+}
+
+.lifestyle-icon.orange {
+  color: #e67e22;
+}
+
+.lifestyle-icon.green {
+  color: #27ae60;
+}
+
+.lifestyle-icon.blue {
+  color: #2980b9;
+}
+
+.lifestyle-card.hoverable:hover .lifestyle-icon {
+  color: #fff;
+}
