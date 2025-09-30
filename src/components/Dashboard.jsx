@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaUser, FaCog, FaSignOutAlt } from "react-icons/fa";
+import { FaMoon, FaDumbbell, FaUtensils, FaWineGlassAlt, FaSmoking } from "react-icons/fa";
 import "./Dashboard.css";
 
 function Dashboard() {
@@ -13,11 +14,36 @@ function Dashboard() {
         <div className="logo">SeedCheck</div>
 
         <nav className="nav-links">
-          <NavLink to="/overview" className="nav-item">Overview</NavLink>
-          <NavLink to="/lifestyle" className="nav-item">Lifestyle</NavLink>
-          <NavLink to="/symptoms" className="nav-item">Symptoms</NavLink>
-          <NavLink to="/trends" className="nav-item">Trends</NavLink>
-          <NavLink to="/resources" className="nav-item">Resources</NavLink>
+          <NavLink 
+            to="/overview" 
+            className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}
+          >
+            Overview
+          </NavLink>
+          <NavLink 
+            to="/lifestyle" 
+            className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}
+          >
+            Lifestyle
+          </NavLink>
+          <NavLink 
+            to="/symptoms" 
+            className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}
+          >
+            Symptoms
+          </NavLink>
+          <NavLink 
+            to="/trends" 
+            className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}
+          >
+            Trends
+          </NavLink>
+          <NavLink 
+            to="/resources" 
+            className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}
+          >
+            Resources
+          </NavLink>
         </nav>
 
         <div className="nav-icons">
@@ -78,6 +104,60 @@ function Dashboard() {
             <div className="progress-bar" style={{ width: "70%" }}></div>
           </div>
         </div>
+      </div>
+
+      {/* Lifestyle Habits Summary */}
+      <div className="lifestyle-card">
+        <h3>📈 Lifestyle Habits Summary</h3>
+        <p>Your recent lifestyle tracking performance</p>
+        <div className="habits-container">
+          <div className="habit">
+            <FaMoon className="habit-icon sleep" />
+            <p>Sleep</p>
+            <h4>85%</h4>
+            <div className="habit-progress">
+              <div className="habit-bar" style={{ width: "85%" }}></div>
+            </div>
+          </div>
+          <div className="habit">
+            <FaDumbbell className="habit-icon exercise" />
+            <p>Exercise</p>
+            <h4>70%</h4>
+            <div className="habit-progress">
+              <div className="habit-bar" style={{ width: "70%" }}></div>
+            </div>
+          </div>
+          <div className="habit">
+            <FaUtensils className="habit-icon diet" />
+            <p>Diet</p>
+            <h4>60%</h4>
+            <div className="habit-progress">
+              <div className="habit-bar" style={{ width: "60%" }}></div>
+            </div>
+          </div>
+          <div className="habit">
+            <FaWineGlassAlt className="habit-icon alcohol" />
+            <p>Alcohol</p>
+            <h4>90%</h4>
+            <div className="habit-progress">
+              <div className="habit-bar" style={{ width: "90%" }}></div>
+            </div>
+          </div>
+          <div className="habit">
+            <FaSmoking className="habit-icon smoking" />
+            <p>Smoking</p>
+            <h4>100%</h4>
+            <div className="habit-progress">
+              <div className="habit-bar" style={{ width: "100%" }}></div>
+            </div>
+          </div>
+        </div>
+        <button 
+          className="update-btn"
+          onClick={() => navigate("/lifestyle")}
+        >
+          Update Lifestyle Habits
+        </button>
       </div>
     </div>
   );

@@ -201,3 +201,81 @@ body {
   background: #002b5c;
   height: 100%;
 }
+
+/* Lifestyle Habits Card */
+.lifestyle-card {
+  background: #f0faff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.lifestyle-card h3 {
+  color: #003366;
+  font-weight: bold;
+}
+
+.lifestyle-card p {
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.habits-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.habit {
+  flex: 1;
+  min-width: 120px;
+}
+
+.habit-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.habit-icon.sleep { color: #1e90ff; }
+.habit-icon.exercise { color: #28a745; }
+.habit-icon.diet { color: #ff8c00; }
+.habit-icon.alcohol { color: #8a2be2; }
+.habit-icon.smoking { color: #dc3545; }
+
+.habit h4 {
+  margin: 5px 0;
+  color: #003366;
+}
+
+.habit-progress {
+  background: #d9e9f7;
+  border-radius: 8px;
+  height: 8px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.habit-bar {
+  background: #003366;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.update-btn {
+  background: #003366;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.update-btn:hover {
+  background: #0055aa;
+}
