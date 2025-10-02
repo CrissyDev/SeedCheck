@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {
@@ -7,10 +8,14 @@ import {
   FaUtensils,
   FaDumbbell,
   FaMoon,
+  FaUser,
+  FaCog,
+  FaSignOutAlt,
 } from "react-icons/fa";
 import "./Lifestyle.css";
 
 function Lifestyle() {
+  const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [entries, setEntries] = useState({
     drinks: 0,
@@ -18,19 +23,80 @@ function Lifestyle() {
     diet: 3,
     exercise: 30,
     sleep: 8,
+    notes: "",
   });
 
   const [activeTab, setActiveTab] = useState("alcohol");
 
   const handleSave = () => {
     alert(
-      `Saved Entry for ${selectedDate.toDateString()}:\n🍷 Drinks: ${entries.drinks}\n🚬 Cigarettes: ${entries.cigarettes}\n🥗 Diet: ${entries.diet}/5\n🏋️ Exercise: ${entries.exercise}m\n🌙 Sleep: ${entries.sleep}h`
+      `Saved Entry for ${selectedDate.toDateString()}:\n🍷 Drinks: ${entries.drinks}\n🚬 Cigarettes: ${entries.cigarettes}\n🥗 Diet: ${entries.diet}/5\n🏋️ Exercise: ${entries.exercise}m\n🌙 Sleep: ${entries.sleep}h\n📝 Notes: ${entries.notes || "None"}`
     );
   };
 
   return (
     <div className="lifestyle-page">
-      {/* Header */}
+      {/* Top Navigation (copied from Dashboard for consistency) */}
+      <header className="header">
+        <div className="logo">SeedCheck</div>
+
+        <nav className="nav-links">
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive ? "nav-item active" : "nav-item"
+            }
+          >
+            Overview
+          </NavLink>
+          <NavLink
+            to="/lifestyle"
+            className={({ isActive }) =>
+              isActive ? "nav-item active" : "nav-item"
+            }
+          >
+            Lifestyle
+          </NavLink>
+          <NavLink
+            to="/symptoms"
+            className={({ isActive }) =>
+              isActive ? "nav-item active" : "nav-item"
+            }
+          >
+            Symptoms
+          </NavLink>
+          <NavLink
+            to="/trends"
+            className={({ isActive }) =>
+              isActive ? "nav-item active" : "nav-item"
+            }
+          >
+            Trends
+          </NavLink>
+          <NavLink
+            to="/resources"
+            className={({ isActive }) =>
+              isActive ? "nav-item active" : "nav-item"
+            }
+          >
+            Resources
+          </NavLink>
+        </nav>
+
+        <div className="nav-icons">
+          <button className="icon-btn">
+            <FaUser />
+          </button>
+          <button className="icon-btn">
+            <FaCog />
+          </button>
+          <button className="icon-btn">
+            <FaSignOutAlt />
+          </button>
+        </div>
+      </header>
+
+      {/* Header Row */}
       <div className="header-row">
         <div>
           <h2>Lifestyle Tracking</h2>
@@ -132,6 +198,24 @@ function Lifestyle() {
             </div>
             <label>Type of alcohol (optional)</label>
             <textarea placeholder="e.g., Beer, Wine, Spirits..." />
+
+            {/* Daily Notes Section */}
+            <div className="detail-card">
+              <h3>Daily Notes</h3>
+              <p>Add any additional notes about your day, mood, or observations</p>
+              <textarea
+                placeholder="How are you feeling today? Any observations about your health or lifestyle?"
+                value={entries.notes}
+                onChange={(e) =>
+                  setEntries({ ...entries, notes: e.target.value })
+                }
+              />
+            </div>
+
+            {/* Save Today's Entry */}
+            <button className="save-today-btn" onClick={handleSave}>
+              Save Today’s Entry
+            </button>
           </div>
         )}
 

@@ -35,7 +35,7 @@
 }
 
 .save-btn {
-  background: #3399ff; /* lighter blue */
+  background: #3399ff; 
   color: #fff;
   border: none;
   padding: 8px 16px;
@@ -45,7 +45,7 @@
 }
 
 .save-btn:hover {
-  background: #4da6ff; /* softer hover */
+  background: #4da6ff; 
 }
 
 .cards-grid {
@@ -75,7 +75,7 @@
 }
 
 .lifestyle-card.hoverable:hover {
-  background: #3399ff; /* lighter hover blue */
+  background: #3399ff; 
   color: #fff;
   transform: translateY(-5px);
   box-shadow: 0 4px 12px rgba(51, 153, 255, 0.4);
@@ -109,4 +109,32 @@
 
 .lifestyle-card.hoverable:hover .lifestyle-icon {
   color: #fff;
+}
+
+.detail-card textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  margin-top: 6px;
+  resize: vertical;
+}
+
+/* Save Today's Entry button */
+.save-today-btn {
+  margin-top: 16px;
+  background: #2980b9;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.save-today-btn:hover {
+  background: #2980b9;
 }
