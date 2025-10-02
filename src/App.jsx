@@ -4,8 +4,10 @@ import { Routes, Route } from "react-router-dom";
 
 import WelcomePage from "./components/WelcomePage.jsx";
 import ProfileSetup from "./components/ProfileSetup.jsx";
-import Dashboard from "./components/Dashboard";
-import Lifestyle from "./components/Lifestyle";  
+import Dashboard from "./components/Dashboard.jsx";
+import Lifestyle from "./components/Lifestyle.jsx";
+import Symptoms from "./components/Symptoms.jsx";  
+
 function App() {
   return (
     <Routes>
@@ -20,6 +22,9 @@ function App() {
 
       {/* Lifestyle */}
       <Route path="/lifestyle" element={<Lifestyle />} />
+
+      {/* Symptoms */}
+      <Route path="/symptoms" element={<Symptoms />} /> 
 
       {/* 404 fallback */}
       <Route path="*" element={<h2>404 - Page Not Found</h2>} />
