@@ -1,3 +1,4 @@
+// src/components/Symptoms.jsx
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import DatePicker from "react-datepicker";
@@ -25,6 +26,7 @@ function Symptoms() {
   const [activeTab, setActiveTab] = useState("urogenital");
 
   // Urogenital states
+  const [testicularPain, setTesticularPain] = useState(0);
   const [testicularSwelling, setTesticularSwelling] = useState(false);
   const [discharge, setDischarge] = useState(false);
   const [dischargeType, setDischargeType] = useState("");
@@ -38,34 +40,58 @@ function Symptoms() {
   const [tempMethod, setTempMethod] = useState("");
   const [notes, setNotes] = useState("");
 
+  // Sexual Health states
+  const [erectileFunction, setErectileFunction] = useState(5);
+  const [libidoLevel, setLibidoLevel] = useState(5);
+  const [satisfaction, setSatisfaction] = useState(5);
+  const [ejaculationIssues, setEjaculationIssues] = useState(false);
+  const [ejaculationNotes, setEjaculationNotes] = useState("");
+  const [sexualPain, setSexualPain] = useState(0);
+  const [contraceptionUsed, setContraceptionUsed] = useState(false);
+  const [sexualNotes, setSexualNotes] = useState("");
+
   const handleSave = () => {
-    alert(
-      `Saved Symptoms for ${selectedDate.toDateString()}`
-    );
+    alert(`✅ Symptoms saved for ${selectedDate.toDateString()}`);
   };
 
   return (
     <div className="symptoms-page">
-      {/* Header */}
+      {/* Top Navbar */}
       <header className="header">
         <div className="logo">SeedCheck</div>
 
         <nav className="nav-links">
-          <NavLink to="/dashboard" className="nav-item">Overview</NavLink>
-          <NavLink to="/lifestyle" className="nav-item">Lifestyle</NavLink>
-          <NavLink to="/symptoms" className="nav-item active">Symptoms</NavLink>
-          <NavLink to="/trends" className="nav-item">Trends</NavLink>
-          <NavLink to="/resources" className="nav-item">Resources</NavLink>
+          <NavLink to="/dashboard" className="nav-item">
+            Overview
+          </NavLink>
+          <NavLink to="/lifestyle" className="nav-item">
+            Lifestyle
+          </NavLink>
+          <NavLink to="/symptoms" className="nav-item active">
+            Symptoms
+          </NavLink>
+          <NavLink to="/trends" className="nav-item">
+            Trends
+          </NavLink>
+          <NavLink to="/resources" className="nav-item">
+            Resources
+          </NavLink>
         </nav>
 
         <div className="nav-icons">
-          <button className="icon-btn"><FaUser /></button>
-          <button className="icon-btn"><FaCog /></button>
-          <button className="icon-btn"><FaSignOutAlt /></button>
+          <button className="icon-btn">
+            <FaUser />
+          </button>
+          <button className="icon-btn">
+            <FaCog />
+          </button>
+          <button className="icon-btn">
+            <FaSignOutAlt />
+          </button>
         </div>
       </header>
 
-      {/* Title Row */}
+      {/* Title + Date Row */}
       <div className="header-row">
         <div>
           <h2>Symptom Tracking</h2>
@@ -79,11 +105,13 @@ function Symptoms() {
             className="date-picker"
             dateFormat="MMMM d, yyyy"
           />
-          <button className="save-btn" onClick={handleSave}>Save Entry</button>
+          <button className="save-btn" onClick={handleSave}>
+            Save Entry
+          </button>
         </div>
       </div>
 
-      {/* Cards */}
+      {/* Quick Metrics Cards */}
       <div className="cards-grid">
         <div className="symptom-card hoverable">
           <FaExclamationTriangle className="symptom-icon orange" />
@@ -112,9 +140,24 @@ function Symptoms() {
 
       {/* Navigation Tabs */}
       <div className="symptom-tabs">
-        <button className={`tab-btn ${activeTab === "urogenital" ? "active" : ""}`} onClick={() => setActiveTab("urogenital")}>Urogenital</button>
-        <button className={`tab-btn ${activeTab === "sexual" ? "active" : ""}`} onClick={() => setActiveTab("sexual")}>Sexual Health</button>
-        <button className={`tab-btn ${activeTab === "general" ? "active" : ""}`} onClick={() => setActiveTab("general")}>General</button>
+        <button
+          className={`tab-btn ${activeTab === "urogenital" ? "active" : ""}`}
+          onClick={() => setActiveTab("urogenital")}
+        >
+          Urogenital
+        </button>
+        <button
+          className={`tab-btn ${activeTab === "sexual" ? "active" : ""}`}
+          onClick={() => setActiveTab("sexual")}
+        >
+          Sexual Health
+        </button>
+        <button
+          className={`tab-btn ${activeTab === "general" ? "active" : ""}`}
+          onClick={() => setActiveTab("general")}
+        >
+          General
+        </button>
       </div>
 
       {/* Tab Content */}
@@ -126,77 +169,239 @@ function Symptoms() {
 
             {/* Testicular Pain */}
             <label>Testicular pain level</label>
-            <input type="range" min="0" max="10" />
-            <p className="range-labels"><span>No pain</span><span>Extreme pain</span></p>
+            <input
+              type="range"
+              min="0"
+              max="10"
+              value={testicularPain}
+              onChange={(e) => setTesticularPain(e.target.value)}
+            />
+            <p className="range-labels">
+              <span>No pain</span>
+              <span>Extreme pain</span>
+            </p>
 
-            {/* Checkboxes */}
-            <div>
-              <label>
-                <input type="checkbox" checked={testicularSwelling} onChange={() => setTesticularSwelling(!testicularSwelling)} />
-                Testicular swelling present
-              </label>
-            </div>
-            <div>
-              <label>
-                <input type="checkbox" checked={discharge} onChange={() => setDischarge(!discharge)} />
-                Discharge present
-              </label>
-            </div>
+            {/* Swelling + Discharge */}
+            <label>
+              <input
+                type="checkbox"
+                checked={testicularSwelling}
+                onChange={() => setTesticularSwelling(!testicularSwelling)}
+              />
+              Testicular swelling present
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={discharge}
+                onChange={() => setDischarge(!discharge)}
+              />
+              Discharge present
+            </label>
 
-            {/* Conditional discharge form */}
             {discharge && (
               <div className="discharge-section">
-                <textarea placeholder="Describe type/consistency" value={dischargeType} onChange={(e) => setDischargeType(e.target.value)} />
-                <textarea placeholder="Describe color" value={dischargeColor} onChange={(e) => setDischargeColor(e.target.value)} />
+                <textarea
+                  placeholder="Describe type/consistency"
+                  value={dischargeType}
+                  onChange={(e) => setDischargeType(e.target.value)}
+                />
+                <textarea
+                  placeholder="Describe color"
+                  value={dischargeColor}
+                  onChange={(e) => setDischargeColor(e.target.value)}
+                />
               </div>
             )}
 
             {/* Urinary Symptoms */}
             <h4>Urinary Symptoms</h4>
             <label>Frequency</label>
-            <input type="range" min="0" max="10" value={urinaryFrequency} onChange={(e) => setUrinaryFrequency(e.target.value)} />
+            <input
+              type="range"
+              min="0"
+              max="10"
+              value={urinaryFrequency}
+              onChange={(e) => setUrinaryFrequency(e.target.value)}
+            />
             <label>Urgency</label>
-            <input type="range" min="0" max="10" value={urgency} onChange={(e) => setUrgency(e.target.value)} />
+            <input
+              type="range"
+              min="0"
+              max="10"
+              value={urgency}
+              onChange={(e) => setUrgency(e.target.value)}
+            />
 
             {/* Burning + blood in urine */}
-            <div>
-              <label>
-                <input type="checkbox" checked={burning} onChange={() => setBurning(!burning)} />
-                Burning sensation
-              </label>
-            </div>
-            <div>
-              <label>
-                <input type="checkbox" checked={bloodInUrine} onChange={() => setBloodInUrine(!bloodInUrine)} />
-                Blood in urine
-              </label>
-            </div>
+            <label>
+              <input
+                type="checkbox"
+                checked={burning}
+                onChange={() => setBurning(!burning)}
+              />
+              Burning sensation
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={bloodInUrine}
+                onChange={() => setBloodInUrine(!bloodInUrine)}
+              />
+              Blood in urine
+            </label>
 
             {/* Scrotal Temperature */}
-            <div>
-              <label>
-                <input type="checkbox" checked={scrotalTemp} onChange={() => setScrotalTemp(!scrotalTemp)} />
-                Scrotal temperature measured
-              </label>
-            </div>
+            <label>
+              <input
+                type="checkbox"
+                checked={scrotalTemp}
+                onChange={() => setScrotalTemp(!scrotalTemp)}
+              />
+              Scrotal temperature measured
+            </label>
             {scrotalTemp && (
               <div className="scrotal-temp-section">
-                <input type="range" min="30" max="40" value={tempValue} onChange={(e) => setTempValue(e.target.value)} />
+                <input
+                  type="range"
+                  min="30"
+                  max="40"
+                  value={tempValue}
+                  onChange={(e) => setTempValue(e.target.value)}
+                />
                 <span>{tempValue}°C</span>
-                <input type="text" placeholder="How was temperature measured?" value={tempMethod} onChange={(e) => setTempMethod(e.target.value)} />
+                <input
+                  type="text"
+                  placeholder="How was temperature measured?"
+                  value={tempMethod}
+                  onChange={(e) => setTempMethod(e.target.value)}
+                />
               </div>
             )}
 
             {/* Notes */}
             <h4>Additional Notes</h4>
-            <textarea placeholder="Add any extra notes..." value={notes} onChange={(e) => setNotes(e.target.value)} />
+            <textarea
+              placeholder="Add any extra notes..."
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+            />
 
-            <button className="save-btn">Save Symptom Entry</button>
+            <button className="save-btn" onClick={handleSave}>
+              Save Symptom Entry
+            </button>
           </div>
         )}
 
-        {activeTab === "sexual" && <p>Track Sexual Health metrics here.</p>}
-        {activeTab === "general" && <p>Track General Wellbeing details here.</p>}
+        {activeTab === "sexual" && (
+          <div className="form-container">
+            <h3>❤️ Sexual Health</h3>
+            <p>Track sexual performance, satisfaction, and related issues</p>
+
+            {/* Erectile Function */}
+            <label>Erectile Function</label>
+            <input
+              type="range"
+              min="0"
+              max="10"
+              value={erectileFunction}
+              onChange={(e) => setErectileFunction(e.target.value)}
+            />
+            <p className="range-labels">
+              <span>Poor</span>
+              <span>Excellent</span>
+            </p>
+
+            {/* Libido */}
+            <label>Libido Level</label>
+            <input
+              type="range"
+              min="0"
+              max="10"
+              value={libidoLevel}
+              onChange={(e) => setLibidoLevel(e.target.value)}
+            />
+            <p className="range-labels">
+              <span>Low</span>
+              <span>High</span>
+            </p>
+
+            {/* Sexual Satisfaction */}
+            <label>Satisfaction with sexual activity</label>
+            <input
+              type="range"
+              min="0"
+              max="10"
+              value={satisfaction}
+              onChange={(e) => setSatisfaction(e.target.value)}
+            />
+            <p className="range-labels">
+              <span>Unsatisfied</span>
+              <span>Very satisfied</span>
+            </p>
+
+            {/* Ejaculation Issues */}
+            <label>
+              <input
+                type="checkbox"
+                checked={ejaculationIssues}
+                onChange={() => setEjaculationIssues(!ejaculationIssues)}
+              />
+              Ejaculation issues present
+            </label>
+            {ejaculationIssues && (
+              <textarea
+                placeholder="Describe the issue..."
+                value={ejaculationNotes}
+                onChange={(e) => setEjaculationNotes(e.target.value)}
+              />
+            )}
+
+            {/* Pain during sex */}
+            <label>Pain or discomfort during sexual activity</label>
+            <input
+              type="range"
+              min="0"
+              max="10"
+              value={sexualPain}
+              onChange={(e) => setSexualPain(e.target.value)}
+            />
+            <p className="range-labels">
+              <span>No pain</span>
+              <span>Extreme pain</span>
+            </p>
+
+            {/* Contraception */}
+            <label>
+              <input
+                type="checkbox"
+                checked={contraceptionUsed}
+                onChange={() => setContraceptionUsed(!contraceptionUsed)}
+              />
+              Contraception used
+            </label>
+
+            {/* Notes */}
+            <h4>Additional Notes</h4>
+            <textarea
+              placeholder="Add any extra notes about sexual health..."
+              value={sexualNotes}
+              onChange={(e) => setSexualNotes(e.target.value)}
+            />
+
+            <button className="save-btn" onClick={handleSave}>
+              Save Sexual Health Entry
+            </button>
+          </div>
+        )}
+
+        {activeTab === "general" && (
+          <div className="form-container">
+            <h3>🌿 General Wellbeing</h3>
+            <p>Track sleep, energy levels, and overall health</p>
+            <p className="placeholder">Coming soon...</p>
+          </div>
+        )}
       </div>
     </div>
   );
