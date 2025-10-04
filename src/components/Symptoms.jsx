@@ -50,6 +50,13 @@ function Symptoms() {
   const [contraceptionUsed, setContraceptionUsed] = useState(false);
   const [sexualNotes, setSexualNotes] = useState("");
 
+  // General Wellbeing states 
+  const [fatigue, setFatigue] = useState(0);
+  const [stress, setStress] = useState(0);
+  const [mood, setMood] = useState(5);
+  const [overallWellbeing, setOverallWellbeing] = useState(5);
+  const [generalNotes, setGeneralNotes] = useState("");
+
   const handleSave = () => {
     alert(`✅ Symptoms saved for ${selectedDate.toDateString()}`);
   };
@@ -396,12 +403,88 @@ function Symptoms() {
         )}
 
         {activeTab === "general" && (
-          <div className="form-container">
+          <div className="form-container general-tab">
             <h3>🌿 General Wellbeing</h3>
-            <p>Track sleep, energy levels, and overall health</p>
-            <p className="placeholder">Coming soon...</p>
+            <p>Track overall health, mood, and energy levels</p>
+
+            {/* Fatigue */}
+            <div className="range-group">
+              <label>Fatigue level</label>
+              <input
+                type="range"
+                min="0"
+                max="10"
+                value={fatigue}
+                onChange={(e) => setFatigue(e.target.value)}
+              />
+              <p className="range-labels">
+                <span>Very energetic</span>
+                <span>Extremely tired</span>
+              </p>
+            </div>
+
+            {/* Stress */}
+            <div className="range-group">
+              <label>Stress level</label>
+              <input
+                type="range"
+                min="0"
+                max="10"
+                value={stress}
+                onChange={(e) => setStress(e.target.value)}
+              />
+              <p className="range-labels">
+                <span>Very relaxed</span>
+                <span>Extremely stressed</span>
+              </p>
+            </div>
+
+            {/* Mood */}
+            <div className="range-group">
+              <label>Mood</label>
+              <input
+                type="range"
+                min="0"
+                max="10"
+                value={mood}
+                onChange={(e) => setMood(e.target.value)}
+              />
+              <p className="range-labels">
+                <span>Very low</span>
+                <span>Excellent</span>
+              </p>
+            </div>
+
+            {/* Overall Wellbeing */}
+            <div className="range-group">
+              <label>Overall wellbeing</label>
+              <input
+                type="range"
+                min="0"
+                max="10"
+                value={overallWellbeing}
+                onChange={(e) => setOverallWellbeing(e.target.value)}
+              />
+              <p className="range-labels">
+                <span>Very poor</span>
+                <span>Excellent</span>
+              </p>
+            </div>
+
+            {/* Notes */}
+            <h4>Additional Notes</h4>
+            <textarea
+              placeholder="Describe any symptoms, patterns, or concerns you’ve noticed..."
+              value={generalNotes}
+              onChange={(e) => setGeneralNotes(e.target.value)}
+            />
+
+            <button className="save-btn" onClick={handleSave}>
+              Save Wellbeing Entry
+            </button>
           </div>
         )}
+    
       </div>
     </div>
   );
