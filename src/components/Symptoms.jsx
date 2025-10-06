@@ -58,7 +58,7 @@ function Symptoms() {
   const [generalNotes, setGeneralNotes] = useState("");
 
   const handleSave = () => {
-    alert(`✅ Symptoms saved for ${selectedDate.toDateString()}`);
+    alert(`Symptoms saved for ${selectedDate.toDateString()}`);
   };
 
   return (

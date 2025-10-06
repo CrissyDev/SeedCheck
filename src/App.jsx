@@ -6,7 +6,8 @@ import WelcomePage from "./components/WelcomePage.jsx";
 import ProfileSetup from "./components/ProfileSetup.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import Lifestyle from "./components/Lifestyle.jsx";
-import Symptoms from "./components/Symptoms.jsx";  
+import Symptoms from "./components/Symptoms.jsx";
+import Trends from "./components/Trends.jsx"; // ✅ Import Trends component
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
 
       {/* Symptoms */}
       <Route path="/symptoms" element={<Symptoms />} /> 
+
+      {/* Trends route */}
+      <Route path="/trends" element={<Trends />} />
 
       {/* 404 fallback */}
       <Route path="*" element={<h2>404 - Page Not Found</h2>} />

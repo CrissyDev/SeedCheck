@@ -1,0 +1,192 @@
+/* --- Page Container --- */
+.trends-page {
+  background-color: #f9fcff;
+  color: #002b5c;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+}
+
+/* --- Top Navigation Bar --- */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e9f4ff;
+  padding: 0.8rem 2rem;
+  border-bottom: 1px solid #d1e7ff;
+}
+
+.logo {
+  font-size: 1.2rem;
+  color: #002b5c;
+}
+
+.welcome-text {
+  margin-left: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #002b5c;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-item:hover {
+  color: #0074e0;
+}
+
+.nav-item.active {
+  background: #002b5c;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+}
+
+.nav-icons .icon {
+  font-size: 1.3rem;
+  margin-left: 1rem;
+  color: #002b5c;
+  cursor: pointer;
+}
+
+/* --- Page Header --- */
+.trends-header {
+  padding: 2rem;
+  position: relative;
+}
+
+.trends-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.trends-header p {
+  font-size: 0.95rem;
+  color: #4a4a4a;
+}
+
+.dropdown {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+.dropdown-btn {
+  background-color: #ffffff;
+  border: 1px solid #cce4ff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 0.3rem;
+  z-index: 10;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content p {
+  margin: 0;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dropdown-content p:hover {
+  background-color: #e6f3ff;
+}
+
+/* --- Cards Section --- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  padding: 0 2rem;
+}
+
+.card {
+  background-color: #e6f3ff;
+  padding: 1.2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 64, 128, 0.15);
+}
+
+.card h3 {
+  font-size: 2rem;
+  margin: 0.3rem 0;
+}
+
+.trend-up {
+  color: #008000;
+  font-size: 0.9rem;
+}
+
+.trend-down {
+  color: #cc0000;
+  font-size: 0.9rem;
+}
+
+/* --- Tabs --- */
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 2rem 0 2rem;
+  background-color: #f0f7ff;
+  border-radius: 8px;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  color: #002b5c;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.tab:hover {
+  background-color: #d7ebff;
+}
+
+.tab.active {
+  background-color: #002b5c;
+  color: #ffffff;
+}
+
+/* --- Tab Content --- */
+.tab-content {
+  margin: 1.5rem 2rem 3rem 2rem;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 64, 128, 0.1);
+}
