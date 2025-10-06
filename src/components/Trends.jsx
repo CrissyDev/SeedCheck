@@ -1,11 +1,44 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Trends.css";
-import { FaArrowUp, FaArrowDown, FaUserCircle, FaCog } from "react-icons/fa";
+import {
+  FaArrowUp,
+  FaArrowDown,
+  FaUserCircle,
+  FaCog,
+} from "react-icons/fa";
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+  Legend,
+} from "recharts";
 
 const Trends = () => {
   const [selectedRange, setSelectedRange] = useState("30 Days");
   const [activeTab, setActiveTab] = useState("Overview");
+
+  // Sample daily data
+  const data = [
+    { date: "Jan 1", healthScore: 65, lifestyle: 70, symptoms: 2 },
+    { date: "Jan 2", healthScore: 67, lifestyle: 68, symptoms: 3 },
+    { date: "Jan 3", healthScore: 64, lifestyle: 66, symptoms: 4 },
+    { date: "Jan 4", healthScore: 70, lifestyle: 72, symptoms: 1 },
+    { date: "Jan 5", healthScore: 73, lifestyle: 75, symptoms: 2 },
+    { date: "Jan 6", healthScore: 76, lifestyle: 78, symptoms: 1 },
+    { date: "Jan 7", healthScore: 78, lifestyle: 79, symptoms: 1 },
+    { date: "Jan 8", healthScore: 77, lifestyle: 80, symptoms: 3 },
+    { date: "Jan 9", healthScore: 80, lifestyle: 83, symptoms: 2 },
+    { date: "Jan 10", healthScore: 82, lifestyle: 84, symptoms: 1 },
+    { date: "Jan 11", healthScore: 81, lifestyle: 82, symptoms: 3 },
+    { date: "Jan 12", healthScore: 85, lifestyle: 86, symptoms: 1 },
+    { date: "Jan 13", healthScore: 84, lifestyle: 85, symptoms: 2 },
+    { date: "Jan 14", healthScore: 88, lifestyle: 89, symptoms: 1 },
+  ];
 
   const handleRangeChange = (range) => {
     setSelectedRange(range);
@@ -104,25 +137,46 @@ const Trends = () => {
       {/* --- Dynamic Tab Content --- */}
       <div className="tab-content">
         {activeTab === "Overview" && (
-          <p>This is the Overview section showing key performance summaries.</p>
+          <div className="chart-container">
+            <h4>📈 Health Score Trend</h4>
+            <p>Your overall fertility health score over time</p>
+            <ResponsiveContainer width="100%" height={300}>
+              <AreaChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
+                <defs>
+                  <linearGradient id="colorHealth" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#66bb6a" stopOpacity={0.8}/>
+                    <stop offset="95%" stopColor="#66bb6a" stopOpacity={0}/>
+                  </linearGradient>
+                </defs>
+                <XAxis dataKey="date" />
+                <YAxis />
+                <CartesianGrid strokeDasharray="3 3" />
+                <Tooltip
+                  contentStyle={{ backgroundColor: "#e8f5e9", border: "1px solid #81c784" }}
+                  labelStyle={{ color: "#2e7d32" }}
+                  formatter={(value, name) => [`${value}`, name === "healthScore" ? "Health Score" : name]}
+                />
+                <Legend />
+                <Area
+                  type="monotone"
+                  dataKey="healthScore"
+                  stroke="#2e7d32"
+                  fillOpacity={1}
+                  fill="url(#colorHealth)"
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
         )}
+
         {activeTab === "Lifestyle" && (
-          <p>
-            This section displays your average lifestyle metrics and trends over
-            time.
-          </p>
+          <p>This section displays your average lifestyle metrics and trends over time.</p>
         )}
         {activeTab === "Correlations" && (
-          <p>
-            Here, we analyze how different lifestyle factors correlate with your
-            fertility trends.
-          </p>
+          <p>Here, we analyze how different lifestyle factors correlate with your fertility trends.</p>
         )}
         {activeTab === "Insights" && (
-          <p>
-            Personalized insights generated from your health and lifestyle
-            patterns.
-          </p>
+          <p>Personalized insights generated from your health and lifestyle patterns.</p>
         )}
       </div>
     </div>
