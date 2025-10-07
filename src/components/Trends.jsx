@@ -2,12 +2,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Trends.css";
-import {
-  FaArrowUp,
-  FaArrowDown,
-  FaUserCircle,
-  FaCog,
-} from "react-icons/fa";
+import { FaArrowUp, FaArrowDown, FaUserCircle, FaCog } from "react-icons/fa";
 import {
   AreaChart,
   Area,
@@ -192,7 +187,7 @@ const Trends = () => {
           </div>
         )}
 
-        {/* --- Lifestyle Tab Section with UI --- */}
+        {/* --- Lifestyle Tab Section --- */}
         {activeTab === "Lifestyle" && (
           <>
             <div className="lifestyle-performance">
@@ -246,7 +241,7 @@ const Trends = () => {
               </div>
             </div>
 
-            {/* --- Health Profile Radar Chart --- */}
+            {/* --- Health Profile Radar --- */}
             <div className="health-radar">
               <h4>🧭 Health Profile Radar</h4>
               <p>Current performance vs target goals</p>
@@ -268,12 +263,88 @@ const Trends = () => {
           </>
         )}
 
+        {/* --- Correlation Analysis Section --- */}
         {activeTab === "Correlations" && (
-          <p>
-            Here, we analyze how different lifestyle factors correlate with your
-            fertility trends.
-          </p>
+          <div className="correlation-section">
+            <h3>📊 Correlation Analysis</h3>
+            <p>How different factors impact your fertility health</p>
+
+            <div className="correlation-card">
+              <div className="correlation-info">
+                <h4>Sleep Quality</h4>
+                <p>Strong positive impact on fertility score</p>
+              </div>
+              <div className="progress-bar positive" style={{ width: "85%" }}></div>
+              <span className="correlation-value positive">+0.85</span>
+            </div>
+
+            <div className="correlation-card">
+              <div className="correlation-info">
+                <h4>Exercise</h4>
+                <p>Moderate positive impact on overall health</p>
+              </div>
+              <div className="progress-bar positive" style={{ width: "72%" }}></div>
+              <span className="correlation-value positive">+0.72</span>
+            </div>
+
+            <div className="correlation-card">
+              <div className="correlation-info">
+                <h4>Diet Quality</h4>
+                <p>Good nutrition supports reproductive health</p>
+              </div>
+              <div className="progress-bar positive" style={{ width: "58%" }}></div>
+              <span className="correlation-value positive">+0.58</span>
+            </div>
+
+            <div className="correlation-card">
+              <div className="correlation-info">
+                <h4>Stress Level</h4>
+                <p>High stress reduces fertility markers</p>
+              </div>
+              <div className="progress-bar negative" style={{ width: "68%" }}></div>
+              <span className="correlation-value negative">-0.68</span>
+            </div>
+
+            <div className="correlation-card">
+              <div className="correlation-info">
+                <h4>Alcohol Intake</h4>
+                <p>Negative correlation with sexual function</p>
+              </div>
+              <div className="progress-bar negative" style={{ width: "45%" }}></div>
+              <span className="correlation-value negative">-0.45</span>
+            </div>
+
+            {/* --- New Key Findings Section --- */}
+            <div className="key-findings">
+              <h3>Key Findings</h3>
+              <p className="subtitle">
+                Important patterns discovered in your data
+              </p>
+
+              <div className="finding positive">
+                <h4>🌿 Positive Trend</h4>
+                <p>
+                  Your sleep quality improvements strongly correlate with better overall health scores.
+                </p>
+              </div>
+
+              <div className="finding opportunity">
+                <h4>🎯 Opportunity</h4>
+                <p>
+                  Reducing alcohol intake on weekends could improve your weekly average by 15%.
+                </p>
+              </div>
+
+              <div className="finding watch">
+                <h4>⚠️ Watch Point</h4>
+                <p>
+                  Stress levels tend to spike on Wednesdays, affecting your symptom reports.
+                </p>
+              </div>
+            </div>
+          </div>
         )}
+
         {activeTab === "Insights" && (
           <p>
             Personalized insights generated from your health and lifestyle

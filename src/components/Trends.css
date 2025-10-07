@@ -309,3 +309,131 @@
   font-size: 14px;
   margin-bottom: 20px;
 }
+
+/* --- Correlation Analysis Section --- */
+.correlation-section {
+  background-color: #e6f3fb;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 25px;
+  box-shadow: 0 2px 6px rgba(0, 80, 160, 0.08);
+}
+
+.correlation-section h3 {
+  color: #004a7c;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.correlation-section p {
+  color: #5b7b9a;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.correlation-card {
+  background: #f9fcff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  position: relative;
+  border: 1px solid #dce9f5;
+}
+
+.correlation-info h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #003f63;
+}
+
+.correlation-info p {
+  margin: 3px 0 10px 0;
+  font-size: 13px;
+  color: #607d8b;
+}
+
+.progress-bar {
+  height: 6px;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+  position: relative;
+}
+
+.progress-bar.positive {
+  background-color: #4caf50;
+}
+
+.progress-bar.negative {
+  background-color: #f44336;
+}
+
+.correlation-value {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.correlation-value.positive {
+  color: #2e7d32;
+  background: #e8f5e9;
+}
+
+.correlation-value.negative {
+  color: #d32f2f;
+  background: #fdecea;
+}
+
+/* --- Key Findings Section --- */
+.key-findings {
+  background: #e6f9f8;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 40px;
+  font-family: "Inter", sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.key-findings h3 {
+  color: #003366;
+  margin-bottom: 6px;
+}
+
+.key-findings .subtitle {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.finding {
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.finding h4 {
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.finding.positive {
+  background: #f1fcf5;
+  border-left: 4px solid #2e7d32;
+  color: #2e7d32;
+}
+
+.finding.opportunity {
+  background: #f3f6ff;
+  border-left: 4px solid #2f54eb;
+  color: #1e40af;
+}
+
+.finding.watch {
+  background: #fff8ee;
+  border-left: 4px solid #f57c00;
+  color: #e65100;
+}
