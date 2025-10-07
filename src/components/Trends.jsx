@@ -17,6 +17,11 @@ import {
   ResponsiveContainer,
   CartesianGrid,
   Legend,
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
 } from "recharts";
 
 const Trends = () => {
@@ -38,6 +43,15 @@ const Trends = () => {
     { date: "Jan 12", healthScore: 85, lifestyle: 86, symptoms: 1 },
     { date: "Jan 13", healthScore: 84, lifestyle: 85, symptoms: 2 },
     { date: "Jan 14", healthScore: 88, lifestyle: 89, symptoms: 1 },
+  ];
+
+  const radarData = [
+    { subject: "Sleep", A: 85, fullMark: 100 },
+    { subject: "Exercise", A: 75, fullMark: 100 },
+    { subject: "Diet", A: 68, fullMark: 100 },
+    { subject: "Stress", A: 55, fullMark: 100 },
+    { subject: "Mood", A: 70, fullMark: 100 },
+    { subject: "Energy", A: 80, fullMark: 100 },
   ];
 
   const handleRangeChange = (range) => {
@@ -180,56 +194,78 @@ const Trends = () => {
 
         {/* --- Lifestyle Tab Section with UI --- */}
         {activeTab === "Lifestyle" && (
-          <div className="lifestyle-performance">
-            <h3>⚡ Lifestyle Habits Performance</h3>
-            <p>Track your progress across different lifestyle factors</p>
-            <div className="lifestyle-list">
-              <div className="lifestyle-item">
-                <span>💤 Sleep</span>
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "85%" }}></div>
+          <>
+            <div className="lifestyle-performance">
+              <h3>⚡ Lifestyle Habits Performance</h3>
+              <p>Track your progress across different lifestyle factors</p>
+              <div className="lifestyle-list">
+                <div className="lifestyle-item">
+                  <span>💤 Sleep</span>
+                  <div className="progress">
+                    <div className="progress-bar" style={{ width: "85%" }}></div>
+                  </div>
+                  <span className="percent">85%</span>
+                  <span className="trend up">+5%</span>
                 </div>
-                <span className="percent">85%</span>
-                <span className="trend up">+5%</span>
-              </div>
 
-              <div className="lifestyle-item">
-                <span>🏃‍♀️ Exercise</span>
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "70%" }}></div>
+                <div className="lifestyle-item">
+                  <span>🏃‍♀️ Exercise</span>
+                  <div className="progress">
+                    <div className="progress-bar" style={{ width: "70%" }}></div>
+                  </div>
+                  <span className="percent">70%</span>
+                  <span className="trend up">+8%</span>
                 </div>
-                <span className="percent">70%</span>
-                <span className="trend up">+8%</span>
-              </div>
 
-              <div className="lifestyle-item">
-                <span>🥗 Diet</span>
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "60%" }}></div>
+                <div className="lifestyle-item">
+                  <span>🥗 Diet</span>
+                  <div className="progress">
+                    <div className="progress-bar" style={{ width: "60%" }}></div>
+                  </div>
+                  <span className="percent">60%</span>
+                  <span className="trend down">-3%</span>
                 </div>
-                <span className="percent">60%</span>
-                <span className="trend down">-3%</span>
-              </div>
 
-              <div className="lifestyle-item">
-                <span>🍷 Alcohol</span>
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "90%" }}></div>
+                <div className="lifestyle-item">
+                  <span>🍷 Alcohol</span>
+                  <div className="progress">
+                    <div className="progress-bar" style={{ width: "90%" }}></div>
+                  </div>
+                  <span className="percent">90%</span>
+                  <span className="trend neutral">0%</span>
                 </div>
-                <span className="percent">90%</span>
-                <span className="trend neutral">0%</span>
-              </div>
 
-              <div className="lifestyle-item">
-                <span>🚭 Smoking</span>
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "100%" }}></div>
+                <div className="lifestyle-item">
+                  <span>🚭 Smoking</span>
+                  <div className="progress">
+                    <div className="progress-bar" style={{ width: "100%" }}></div>
+                  </div>
+                  <span className="percent">100%</span>
+                  <span className="trend up">+2%</span>
                 </div>
-                <span className="percent">100%</span>
-                <span className="trend up">+2%</span>
               </div>
             </div>
-          </div>
+
+            {/* --- Health Profile Radar Chart --- */}
+            <div className="health-radar">
+              <h4>🧭 Health Profile Radar</h4>
+              <p>Current performance vs target goals</p>
+              <ResponsiveContainer width="100%" height={350}>
+                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={radarData}>
+                  <PolarGrid />
+                  <PolarAngleAxis dataKey="subject" />
+                  <PolarRadiusAxis angle={30} domain={[0, 100]} />
+                  <Radar
+                    name="Performance"
+                    dataKey="A"
+                    stroke="#007bff"
+                    fill="#007bff"
+                    fillOpacity={0.5}
+                  />
+                </RadarChart>
+              </ResponsiveContainer>
+            </div>
+          </>
         )}
 
         {activeTab === "Correlations" && (

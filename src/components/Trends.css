@@ -290,3 +290,22 @@
   color: #999;
 }
 
+.health-radar {
+  background-color: #eaf8fb;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 25px;
+  box-shadow: 0 2px 6px rgba(0, 80, 160, 0.08);
+}
+
+.health-radar h4 {
+  color: #004a7c;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.health-radar p {
+  color: #4f6e91;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
