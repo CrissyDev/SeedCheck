@@ -437,3 +437,81 @@
   border-left: 4px solid #f57c00;
   color: #e65100;
 }
+
+/* Insights Section */
+.insights-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 20px;
+  color: #003366;
+  box-shadow: 0 2px 10px rgba(0, 0, 50, 0.05);
+}
+
+.insights-section h3 {
+  font-size: 1.4rem;
+  color: #002a80;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.insights-section p {
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  color: #4a4a4a;
+}
+
+.insight-card {
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.insight-card h4 {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #003366;
+}
+
+.insight-card p {
+  color: #333;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.insight-card button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.insight-card button:hover {
+  background: #0056b3;
+}
+
+/* Theme Variants */
+.light-blue {
+  background: #e8f3ff;
+  border-left: 5px solid #007bff;
+}
+
+.light-green {
+  background: #e6f9f0;
+  border-left: 5px solid #28a745;
+}
+
+.light-purple {
+  background: #f2f0ff;
+  border-left: 5px solid #6f42c1;
+}
+
+.insight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 14px rgba(0, 0, 100, 0.08);
+}

@@ -345,11 +345,41 @@ const Trends = () => {
           </div>
         )}
 
+        {/* --- Insights Tab with New UI --- */}
         {activeTab === "Insights" && (
-          <p>
-            Personalized insights generated from your health and lifestyle
-            patterns.
-          </p>
+          <div className="insights-section">
+            <h3>✨ Personalized Recommendations</h3>
+            <p>AI-powered suggestions based on your tracking data</p>
+
+            <div className="insight-card light-blue">
+              <h4>💤 Sleep Optimization</h4>
+              <p>
+                Your data shows that getting 8+ hours of sleep consistently
+                improves your fertility score by 20%. Try setting a consistent
+                bedtime routine.
+              </p>
+              <button>Learn More</button>
+            </div>
+
+            <div className="insight-card light-green">
+              <h4>🏃‍♀️ Exercise Timing</h4>
+              <p>
+                Morning workouts correlate with better mood and energy levels
+                throughout the day. Consider shifting your exercise routine
+                earlier.
+              </p>
+              <button>Set Reminder</button>
+            </div>
+
+            <div className="insight-card light-purple">
+              <h4>🥗 Nutrition Focus</h4>
+              <p>
+                Your diet quality scores are lowest on weekends. Planning healthy
+                meals in advance could help maintain consistency.
+              </p>
+              <button>Meal Planning Tips</button>
+            </div>
+          </div>
         )}
       </div>
     </div>
