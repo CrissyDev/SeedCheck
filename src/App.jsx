@@ -7,7 +7,8 @@ import ProfileSetup from "./components/ProfileSetup.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import Lifestyle from "./components/Lifestyle.jsx";
 import Symptoms from "./components/Symptoms.jsx";
-import Trends from "./components/Trends.jsx"; // ✅ Import Trends component
+import Trends from "./components/Trends.jsx"; 
+import Resources from "./components/Resources.jsx"; 
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
 
       {/* Trends route */}
       <Route path="/trends" element={<Trends />} />
+
+      <Route path="/resources" element={<Resources />} />
 
       {/* 404 fallback */}
       <Route path="*" element={<h2>404 - Page Not Found</h2>} />
