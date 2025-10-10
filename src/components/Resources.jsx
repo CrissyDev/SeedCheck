@@ -344,6 +344,35 @@ const Resources = () => {
           </div>
         </div>
       )}
+
+      {/* === EMERGENCY TAB === */}
+      {activeTab === "emergency" && (
+        <div className="emergency-section mt-6">
+          <h3 className="text-xl font-semibold mb-4 text-red-600">Emergency Contacts</h3>
+          <p className="text-gray-600 mb-4">
+            Reach out immediately to medical professionals or hotlines in case of urgent health concerns.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="emergency-card">
+              <h4>📞 National Emergency Hotline</h4>
+              <p>999 / 112</p>
+            </div>
+            <div className="emergency-card">
+              <h4>🏥 Fertility Support Line</h4>
+              <p>0800-123-456</p>
+            </div>
+            <div className="emergency-card">
+              <h4>🧠 Mental Health Support</h4>
+              <p>1190 (Toll-Free)</p>
+            </div>
+            <div className="emergency-card">
+              <h4>💙 SeedCheck Help Center</h4>
+              <p>+254 700 123 456</p>
+            </div>
+          </div>
+        </div>
+      )}
+      
     </div>
   );
 };
