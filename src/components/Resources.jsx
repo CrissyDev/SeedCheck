@@ -10,6 +10,28 @@ import { FaRegQuestionCircle } from "react-icons/fa";
 const Resources = () => {
   const [activeTab, setActiveTab] = useState("guides");
 
+  // New state for notification toggles and reminder times
+  const [notifications, setNotifications] = useState({
+    daily: true,
+    weekly: true,
+    alerts: true,
+    tips: false,
+    research: false,
+  });
+
+  const [reminderTimes, setReminderTimes] = useState({
+    morning: "08:00",
+    evening: "20:00",
+  });
+
+  const handleToggle = (key) => {
+    setNotifications({ ...notifications, [key]: !notifications[key] });
+  };
+
+  const handleTimeChange = (key, value) => {
+    setReminderTimes({ ...reminderTimes, [key]: value });
+  };
+
   const tabs = [
     { id: "guides", label: "Guides", icon: <IoBookOutline size={18} /> },
     { id: "faqs", label: "FAQs", icon: <FaRegQuestionCircle size={18} /> },
@@ -201,6 +223,124 @@ const Resources = () => {
               Yes, all your health data is encrypted and stored securely. We never share personal health
               information with third parties without your explicit consent.
             </p>
+          </div>
+        </div>
+      )}
+
+      {/* Notifications Section */}
+      {activeTab === "notifications" && (
+        <div className="notifications-section bg-[#E6F7FF] rounded-xl border border-blue-100 p-6 mt-4">
+          <h3 className="text-lg font-semibold text-[#003366] mb-1 flex items-center space-x-2">
+            <IoNotificationsOutline size={20} />
+            <span>Notification Settings</span>
+          </h3>
+          <p className="text-gray-600 mb-5">
+            Customize when and how you receive reminders and updates
+          </p>
+
+          <div className="notification-item">
+            <div>
+              <h4>Daily Tracking Reminders</h4>
+              <p>Get reminded to log your daily habits</p>
+            </div>
+            <label className="switch">
+              <input
+                type="checkbox"
+                checked={notifications.daily}
+                onChange={() => handleToggle("daily")}
+              />
+              <span className="slider"></span>
+            </label>
+          </div>
+
+          <div className="notification-item">
+            <div>
+              <h4>Weekly Health Reports</h4>
+              <p>Receive weekly summaries of your progress</p>
+            </div>
+            <label className="switch">
+              <input
+                type="checkbox"
+                checked={notifications.weekly}
+                onChange={() => handleToggle("weekly")}
+              />
+              <span className="slider"></span>
+            </label>
+          </div>
+
+          <div className="notification-item">
+            <div>
+              <h4>Health Alerts</h4>
+              <p>Important notifications about concerning symptoms</p>
+            </div>
+            <label className="switch">
+              <input
+                type="checkbox"
+                checked={notifications.alerts}
+                onChange={() => handleToggle("alerts")}
+              />
+              <span className="slider"></span>
+            </label>
+          </div>
+
+          <div className="notification-item">
+            <div>
+              <h4>Tips & Advice</h4>
+              <p>Personalized health tips based on your data</p>
+            </div>
+            <label className="switch">
+              <input
+                type="checkbox"
+                checked={notifications.tips}
+                onChange={() => handleToggle("tips")}
+              />
+              <span className="slider"></span>
+            </label>
+          </div>
+
+          <div className="notification-item border-b border-blue-100 pb-4 mb-6">
+            <div>
+              <h4>Research Updates</h4>
+              <p>Latest fertility research and health news</p>
+            </div>
+            <label className="switch">
+              <input
+                type="checkbox"
+                checked={notifications.research}
+                onChange={() => handleToggle("research")}
+              />
+              <span className="slider"></span>
+            </label>
+          </div>
+
+          {/* Reminder Schedule Section */}
+          <div className="reminder-section bg-white border border-blue-100 rounded-lg p-5">
+            <h4 className="font-semibold text-[#003366] mb-3">Reminder Schedule</h4>
+            <p className="text-gray-600 text-sm mb-4">
+              Set when you'd like to receive your daily tracking reminders
+            </p>
+
+            <div className="flex flex-col md:flex-row gap-5">
+              <div className="reminder-item">
+                <h5>Morning Reminder</h5>
+                <input
+                  type="time"
+                  value={reminderTimes.morning}
+                  onChange={(e) => handleTimeChange("morning", e.target.value)}
+                  className="time-input"
+                />
+              </div>
+
+              <div className="reminder-item">
+                <h5>Evening Reminder</h5>
+                <input
+                  type="time"
+                  value={reminderTimes.evening}
+                  onChange={(e) => handleTimeChange("evening", e.target.value)}
+                  className="time-input"
+                />
+              </div>
+            </div>
           </div>
         </div>
       )}

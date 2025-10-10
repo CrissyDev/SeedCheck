@@ -393,3 +393,106 @@ h3 {
     padding: 14px;
   }
 }
+
+/* ===== Notifications Tab Styling ===== */
+.notifications-section {
+  background-color: #e6f7ff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #b3e5ff;
+}
+
+.notification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-top: 1px solid rgba(0, 51, 102, 0.08);
+}
+
+.notification-item:first-child {
+  border-top: none;
+}
+
+.notification-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #003366;
+}
+
+.notification-item p {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+/* Switch Toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 22px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 22px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #007bff;
+}
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Reminder section */
+.reminder-section {
+  margin-top: 1rem;
+}
+
+.reminder-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.reminder-item h5 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #003366;
+}
+
+.time-input {
+  border: 1px solid #b3e5ff;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  color: #003366;
+  background-color: #f9fcff;
+  outline: none;
+  width: 120px;
+}
+.time-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
