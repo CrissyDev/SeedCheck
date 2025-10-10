@@ -299,3 +299,97 @@ h3 {
     padding: 10px 0;
   }
 }
+
+/* ======= General Layout ======= */
+.quick-card {
+  background: #ffffff;
+  border: 1px solid #e5eaf0;
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: 0 1px 3px rgba(0, 51, 102, 0.08);
+  transition: all 0.3s ease;
+}
+.quick-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 8px rgba(0, 51, 102, 0.12);
+}
+
+/* ======= Tabs ======= */
+.tabs-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e6edf5;
+  overflow-x: auto;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: #003366;
+  padding: 10px 16px;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.3s ease;
+  background: #f9fbff;
+  border: none;
+  outline: none;
+}
+.tab-button:hover {
+  background-color: #e6f1ff;
+}
+.tab-button.active {
+  background-color: #003366;
+  color: #ffffff;
+}
+
+/* ======= Guides Section ======= */
+.feature-card {
+  background: #ffffff;
+  border: 1px solid #e5eaf0;
+  border-radius: 12px;
+  padding: 18px;
+  transition: all 0.3s ease;
+}
+.feature-card:hover {
+  border-color: #007bff;
+  box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1);
+}
+
+/* ======= FAQ Section ======= */
+.faq-section {
+  background: #f0faff;
+  border-radius: 12px;
+  border: 1px solid #d6e8ff;
+  padding: 24px;
+  color: #003366;
+}
+.faq-item {
+  border-top: 1px solid #dbe7f3;
+}
+.faq-item:first-child {
+  border-top: none;
+}
+.faq-item h4 {
+  margin-bottom: 6px;
+}
+.faq-item p {
+  color: #4a5568;
+}
+
+/* ======= Responsive ======= */
+@media (max-width: 768px) {
+  .tabs-container {
+    gap: 6px;
+  }
+  .tab-button {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  .quick-card {
+    padding: 14px;
+  }
+}

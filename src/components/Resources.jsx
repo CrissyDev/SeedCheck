@@ -151,6 +151,59 @@ const Resources = () => {
           </div>
         </>
       )}
+
+      {/* FAQs Section */}
+      {activeTab === "faqs" && (
+        <div className="faq-section bg-[#F0FAFF] rounded-xl border border-blue-100 p-6">
+          <h3 className="text-lg font-semibold text-[#003366] mb-1">
+            Frequently Asked Questions
+          </h3>
+          <p className="text-gray-600 mb-5">
+            Common questions about fertility tracking and the SeedCheck app
+          </p>
+
+          <div className="faq-item border-t border-gray-200 py-4">
+            <h4 className="font-semibold text-[#003366] text-base">
+              How often should I track my symptoms?
+            </h4>
+            <p className="text-gray-600 text-sm">
+              For best results, we recommend daily tracking of lifestyle habits and weekly symptom check-ins.
+              This provides enough data to identify patterns while not being overwhelming.
+            </p>
+          </div>
+
+          <div className="faq-item border-t border-gray-200 py-4">
+            <h4 className="font-semibold text-[#003366] text-base">
+              What should I do if I notice concerning symptoms?
+            </h4>
+            <p className="text-gray-600 text-sm">
+              If you experience severe pain, persistent symptoms, or anything that worries you,
+              consult with a healthcare provider immediately. Our app is for tracking purposes and
+              doesn’t replace medical advice.
+            </p>
+          </div>
+
+          <div className="faq-item border-t border-gray-200 py-4">
+            <h4 className="font-semibold text-[#003366] text-base">
+              How long before I see improvements in my fertility health?
+            </h4>
+            <p className="text-gray-600 text-sm">
+              Lifestyle changes typically take 2–3 months to show effects on sperm quality,
+              as sperm production takes about 74 days. Consistency in tracking and healthy habits is key.
+            </p>
+          </div>
+
+          <div className="faq-item border-t border-gray-200 py-4">
+            <h4 className="font-semibold text-[#003366] text-base">
+              Is my data secure and private?
+            </h4>
+            <p className="text-gray-600 text-sm">
+              Yes, all your health data is encrypted and stored securely. We never share personal health
+              information with third parties without your explicit consent.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
